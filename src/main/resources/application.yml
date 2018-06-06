@@ -1,0 +1,33 @@
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  routes:
+    0.1:
+      path: /0.1/**
+      service-id: muxi-terminal-0.1
+    1.0:
+      path: /1.0/**
+      service-id: muxi-terminal-1.0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+security:
+  user:
+    password: ${eureka.password}
+
+---
+spring:
+  profiles: heroku
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
+  password: ${USER_PASSWORD:password}
