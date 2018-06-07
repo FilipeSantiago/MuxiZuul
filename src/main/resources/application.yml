@@ -13,12 +13,12 @@ zuul:
   routes:
     0.1:
       path: /0.1/**
-      #service-id: muxi-terminal-0.1
-      url: https://vast-mesa-36601.herokuapp.com/
+      service-id: muxi-terminal-0.1
+      #url: https://vast-mesa-36601.herokuapp.com/
     1.0:
       path: /1.0/**
-      #service-id: muxi-terminal-1.0
-      url: https://secret-shore-88748.herokuapp.com
+      service-id: muxi-terminal-1.0
+      #url: https://secret-shore-88748.herokuapp.com
 
 eureka:
   client:
